@@ -1,2 +1,0 @@
-# phpblog
-PHP/Laravel project
