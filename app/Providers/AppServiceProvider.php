@@ -14,7 +14,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Schema::defaultStringLength(191);
+        // listen for when sidebar view is loaded
+        // register callback function to bind what we 
+        // want to the view
+        \View::composer('layouts.sidebar', function($view) {
+            $view->with('archives', \App\Post::archives());
+        });
     }
 
     /**
